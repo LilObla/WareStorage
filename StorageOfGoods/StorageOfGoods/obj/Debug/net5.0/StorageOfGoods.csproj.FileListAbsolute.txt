@@ -1,0 +1,16 @@
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\obj\Debug\net5.0\StorageOfGoods.csprojAssemblyReference.cache
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\obj\Debug\net5.0\StorageOfGoods.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\obj\Debug\net5.0\StorageOfGoods.AssemblyInfoInputs.cache
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\obj\Debug\net5.0\StorageOfGoods.AssemblyInfo.cs
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\obj\Debug\net5.0\StorageOfGoods.csproj.CoreCompileInputs.cache
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\bin\Debug\net5.0\StorageOfGoods.exe
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\bin\Debug\net5.0\StorageOfGoods.deps.json
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\bin\Debug\net5.0\StorageOfGoods.runtimeconfig.json
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\bin\Debug\net5.0\StorageOfGoods.runtimeconfig.dev.json
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\bin\Debug\net5.0\StorageOfGoods.dll
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\bin\Debug\net5.0\ref\StorageOfGoods.dll
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\bin\Debug\net5.0\StorageOfGoods.pdb
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\obj\Debug\net5.0\StorageOfGoods.dll
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\obj\Debug\net5.0\ref\StorageOfGoods.dll
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\obj\Debug\net5.0\StorageOfGoods.pdb
+C:\Users\79143\Desktop\StorageOfGoods\StorageOfGoods\obj\Debug\net5.0\StorageOfGoods.genruntimeconfig.cache

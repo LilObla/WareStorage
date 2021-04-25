@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
 namespace Storage
@@ -8,14 +9,14 @@ namespace Storage
     {
         readonly Boolean enabled = true;
         private readonly object locker = new object();
-        readonly Random range = new Random();
+        readonly Random r = new Random();
         List<string> Goods = new List<string>();
         private int SizeOfGoods;
         private int goods = 0;
         private int maxCapacity;
-        Random r = new Random();
         List<string> tovar = new List<string> { "Сыр", "Колбаса", "Хлеб", "Квас", "Вода", "Конфеты", "Пиво" };
         List<string> proiz = new List<string> { "XAV", "DEV", "FED", "SAD", "VOF", "GG", "ASD" };
+        List<string> pokup = new List<string> { "Mr. V", "Mr. Wick", "Mr. John", "Mr. Fen", "Mr. Pan", "Mr. Dan", "Mr. Sam" };
 
         public WareStorage(bool enabled, int goods, int maxCapacity)
         {
@@ -30,11 +31,11 @@ namespace Storage
             {
                 if (goods <= maxCapacity)
                 {
-                    for (int i = 0; i < range.Next(1, 5); i++)
+                    for (int i = 0; i < r.Next(1, 5); i++)
                     {
                         lock (locker)
                         {
-                            SizeOfGoods = range.Next(1, 6);
+                            SizeOfGoods = r.Next(1, 6);
                             goods += SizeOfGoods; 
                             string NameOfGoods = (tovar[r.Next(7)]) + " от компании " + (proiz[r.Next(7)]);
                             Goods.Add(NameOfGoods);
@@ -51,15 +52,15 @@ namespace Storage
             {
                 lock (locker)
                 {
-                    for (int i = 0; i < range.Next(1, 5); i++)
+                    for (int i = 0; i < r.Next(1, 5); i++)
                     {
-                        SizeOfGoods = range.Next(1, 6);
+                        SizeOfGoods = r.Next(1, 6);
                         string NameOfGoods = (tovar[r.Next(7)]) + " от компании " + (proiz[r.Next(7)]);
                         if (Goods.Contains(NameOfGoods) == true)
                         {
                             goods -= SizeOfGoods;
                             Goods.Remove(NameOfGoods);
-                            Console.WriteLine("Покупатель: " + "\nЗабран со склада: " + NameOfGoods + "  Количество занимаемого места: " + SizeOfGoods);
+                            Console.WriteLine("Покупатель: " + (pokup[r.Next(7)]) + "\nЗабран со склада: " + NameOfGoods + "  Количество занимаемого места: " + SizeOfGoods);
                         }
                     }
                 }
@@ -83,6 +84,21 @@ namespace Storage
                 }
                 Thread.Sleep(5000);
             }
+        }
+        public void CountGoods()
+        {
+            while (enabled)
+            {
+                lock(locker)
+                {
+                    foreach (string val in Goods.Distinct())
+                    {
+                        Console.WriteLine(val + " - " + Goods.Where(x => x == val).Count() + " штук");
+                    }
+                }
+                Thread.Sleep(5000);
+            }
+                
         }
     }
 }

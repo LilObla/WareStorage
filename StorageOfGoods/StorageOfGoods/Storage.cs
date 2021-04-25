@@ -14,8 +14,8 @@ namespace Storage
         private int goods = 0;
         private int maxCapacity;
         Random r = new Random();
-        List<string> a = new List<string> { "Сыр", "Колбаса", "Хлеб", "Квас", "Вода", "Конфеты", "Пиво" };
-        List<string> b = new List<string> { "xav", "ved", "def", "sad", "fov", "gg", "asd" };
+        List<string> tovar = new List<string> { "Сыр", "Колбаса", "Хлеб", "Квас", "Вода", "Конфеты", "Пиво" };
+        List<string> proiz = new List<string> { "XAV", "DEV", "FED", "SAD", "VOF", "GG", "ASD" };
 
         public WareStorage(bool enabled, int goods, int maxCapacity)
         {
@@ -36,7 +36,7 @@ namespace Storage
                         {
                             SizeOfGoods = range.Next(1, 6);
                             goods += SizeOfGoods; 
-                            string NameOfGoods = (a[r.Next(7)]) + " от компании " + (b[r.Next(7)]);
+                            string NameOfGoods = (tovar[r.Next(7)]) + " от компании " + (proiz[r.Next(7)]);
                             Goods.Add(NameOfGoods);
                             Console.WriteLine("Поставлен на склад: " + NameOfGoods + "  Количество занимаемого места: " + SizeOfGoods);
                         }
@@ -54,12 +54,12 @@ namespace Storage
                     for (int i = 0; i < range.Next(1, 5); i++)
                     {
                         SizeOfGoods = range.Next(1, 6);
-                        string NameOfGoods = (a[r.Next(7)]) + " от компании " + (b[r.Next(7)]);
+                        string NameOfGoods = (tovar[r.Next(7)]) + " от компании " + (proiz[r.Next(7)]);
                         if (Goods.Contains(NameOfGoods) == true)
                         {
                             goods -= SizeOfGoods;
                             Goods.Remove(NameOfGoods);
-                            Console.WriteLine("Забран со склада: " + NameOfGoods + "  Количество занимаемого места: " + SizeOfGoods);
+                            Console.WriteLine("Покупатель: " + "\nЗабран со склада: " + NameOfGoods + "  Количество занимаемого места: " + SizeOfGoods);
                         }
                     }
                 }
@@ -72,7 +72,14 @@ namespace Storage
             {
                 lock (locker)
                 {
-                    Console.WriteLine(goods);
+                    if (goods > maxCapacity)
+                    {
+                        Console.WriteLine("Склад перегружен!  " + "Загруженность склада: " + goods);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Загруженность склада: " + goods);
+                    }               
                 }
                 Thread.Sleep(5000);
             }

@@ -18,6 +18,22 @@ namespace Storage
         List<string> proiz = new List<string> { "XAV", "DEV", "FED", "SAD", "VOF", "GG", "ASD" };
         List<string> pokup = new List<string> { "Mr. V", "Mr. Wick", "Mr. John", "Mr. Fen", "Mr. Pan", "Mr. Dan", "Mr. Sam" };
 
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                int maxCapacity = 100;
+                WareStorage warestorage = new WareStorage(true, 0, maxCapacity);
+                Thread TNewGoods = new Thread(new ThreadStart(warestorage.NewGoods));
+                Thread TLostGoods = new Thread(new ThreadStart(warestorage.LostGoods));
+                Thread TLostGoodsCount = new Thread(new ThreadStart(warestorage.LostGoodsCount));
+                Thread TCountGoods = new Thread(new ThreadStart(warestorage.CountGoods));
+                TCountGoods.Start();
+                TNewGoods.Start();
+                TLostGoods.Start();
+                TLostGoodsCount.Start();
+            }
+        }
         public WareStorage(bool enabled, int goods, int maxCapacity)
         {
             this.enabled = enabled;
@@ -60,7 +76,7 @@ namespace Storage
                         {
                             goods -= SizeOfGoods;
                             Goods.Remove(NameOfGoods);
-                            Console.WriteLine("Покупатель: " + (pokup[r.Next(7)]) + "\nЗабран со склада: " + NameOfGoods + "  Количество занимаемого места: " + SizeOfGoods);
+                            Console.WriteLine("Забран со склада: " + NameOfGoods + "  Количество занимаемого места: " + SizeOfGoods + "    Покупатель: " + (pokup[r.Next(7)]));
                         }
                     }
                 }
